@@ -36,13 +36,22 @@ export default class Game extends React.Component {
     render() {
         const history=this.state.history;
         const current=history[this.state.stepNumber];
+        const winner=calculateWinner(current.squares);
+        let status;
+        if(winner){
+            status="winner is  "+winner;
+           // window.location.reload();
+        }
+        else{
+            status=`This is turn of ${this.state.xisNext?'X':'O'}`;
+        }
+        console.log(status);
 
         return (
             <div className="game">
                 <div>
                     <Board onClick={(i)=>this.handleClick(i)} squares={current.squares}/>
                 </div>
-                
             </div>
 
         )
@@ -59,7 +68,7 @@ function calculateWinner(squares){
         [1,4,7],
         [2,5,8],
         [0,4,8],
-        [2,4,8]
+        [2,4,6]
 
     ];
     for(let i=0;i<lines.length;i++){
