@@ -262,18 +262,33 @@ export default class Game extends React.Component {
         const winner = calculateWinner(current.squares);
         const board=this.state.board;
         let status;
+
         const game=this.gameOver(board);
         if(game==='TIE'){
-            status="The Game is TIE";
+            status="Match Draw !";
 
         }
         else if (winner) {
-            status = "winner is  " + winner;
+            if(winner==='X'){
+                status="Congratulations! You Win"
+            }
+            else{
+                status="Better Luck! Next Time"
+            }
+            // status = "winner is  " + winner;
 
             // this.playagain();
         }
         else {
-            status = `This is turn of ${this.state.xisNext ? 'X' : 'O'}`;
+            
+
+            if(this.state.xisNext){
+                status="Player Turn"
+            }
+            else{
+                status="Computer Turn"
+            }
+            //status = `This is turn of ${this.state.xisNext ? 'X' : 'O'}`;
 
         }
         console.log(status);
@@ -282,11 +297,11 @@ export default class Game extends React.Component {
             <div className="container d-flex justify-content-center">
                 <div className="game">
                     
-                    {game?<Status bg={'warning'} status={status}/>:<Status bg={'primary'} status={status}/>}
+                    {game?<Status bg={'success'} status={status}/>:<Status bg={'danger'} status={status}/>}
                    
-                    <button className="btn btn-primary m-2" onClick={()=>this.playagain()}>Play again</button>
-                    <button className="btn btn-primary m-2"  onClick={()=>this.playagain()}>Clear</button>
-                    <button className="btn btn-primary m-2"  onClick={()=>this.Restart()}>Restart</button>
+                    <button className="btn btn-danger m-2" onClick={()=>this.playagain()}>Play again</button>
+                    <button className="btn btn-danger m-2"  onClick={()=>this.playagain()}>Clear</button>
+                    <button className="btn btn-danger m-2"  onClick={()=>this.Restart()}>Restart</button>
                     <hr className="liness"></hr>
                     <Board onClick={(i) => this.handleClick(i)} squares={current.squares} />
                     <hr className="liness"></hr>
