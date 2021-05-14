@@ -299,9 +299,9 @@ export default class Game extends React.Component {
                     
                     {game?<Status bg={'success'} status={status}/>:<Status bg={'danger'} status={status}/>}
                    
-                    <button className="btn btn-danger m-2" onClick={()=>this.playagain()}>Play again</button>
-                    <button className="btn btn-danger m-2"  onClick={()=>this.playagain()}>Clear</button>
-                    <button className="btn btn-danger m-2"  onClick={()=>this.Restart()}>Restart</button>
+                    <button className="btn btn-danger sm-m-0 m-2" onClick={()=>this.playagain()}>Play again</button>
+                    <button className="btn btn-danger sm-m-0 m-2"  onClick={()=>this.playagain()}>Clear</button>
+                    <button className="btn btn-danger sm-m-0 m-2"  onClick={()=>this.Restart()}>Restart</button>
                     <hr className="liness"></hr>
                     <Board onClick={(i) => this.handleClick(i)} squares={current.squares} />
                     <hr className="liness"></hr>
