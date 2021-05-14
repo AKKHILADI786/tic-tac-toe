@@ -41,3 +41,12 @@
   height: 75px;
   align-items: center;
 }
+.status_bar{
+  box-sizing: border-box;
+  background-color: rgb(44, 57, 241);
+  border: 10px  solid rgba(44, 44, 163, 0.801);
+  font-size: 25px;
+  text-align: center;
+  padding: 5px;
+  
+}
