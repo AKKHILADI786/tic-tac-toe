@@ -279,14 +279,17 @@ export default class Game extends React.Component {
         console.log(status);
 
         return (
-            <div className="game">
-                <div>
+            <div className="container d-flex justify-content-center">
+                <div className="game">
                     
-                    <Status status={status}/>
-                    {game?<button onClick={()=>this.playagain()}>play again</button>:<></>}
-                    <button onClick={()=>this.playagain()}>clear</button>
-                    <button onClick={()=>this.Restart()}>Restart</button>
+                    {game?<Status bg={'warning'} status={status}/>:<Status bg={'primary'} status={status}/>}
+                   
+                    <button className="btn btn-primary m-2" onClick={()=>this.playagain()}>Play again</button>
+                    <button className="btn btn-primary m-2"  onClick={()=>this.playagain()}>Clear</button>
+                    <button className="btn btn-primary m-2"  onClick={()=>this.Restart()}>Restart</button>
+                    <hr className="liness"></hr>
                     <Board onClick={(i) => this.handleClick(i)} squares={current.squares} />
+                    <hr className="liness"></hr>
                     <Scoreboard win={this.state.win} loss={this.state.loss} tie={this.state.tie} />
                 </div>
 
