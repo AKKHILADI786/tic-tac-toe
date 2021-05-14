@@ -17,7 +17,7 @@
   color: white;
 }
 .square:hover{
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 .board-row{
   display: flex;
@@ -27,4 +27,17 @@
   position: fixed;
   top: 100px;
   left: 50px;
+}
+
+.score{
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin: 5px;
+  background-color: rgb(44, 57, 241);
+  border: 10px  solid rgba(44, 44, 163, 0.801);
+  cursor: pointer;
+  width: 100px;
+  height: 75px;
+  align-items: center;
 }

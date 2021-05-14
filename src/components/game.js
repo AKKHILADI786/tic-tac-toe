@@ -1,12 +1,14 @@
 import React from 'react'
 import Board from './board'
-
+import Scoreboard from './scoreBoard'
 export default class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             xisNext: true,
             stepNumber: 0,
+            player1:true,
+            player2:false,
             history: [
                 { squares: Array(9).fill(null) }
             ]
@@ -33,6 +35,8 @@ export default class Game extends React.Component {
         console.log('you have clicked ',i,square)
 
     }
+
+    
     render() {
         const history=this.state.history;
         const current=history[this.state.stepNumber];
@@ -40,7 +44,6 @@ export default class Game extends React.Component {
         let status;
         if(winner){
             status="winner is  "+winner;
-           // window.location.reload();
         }
         else{
             status=`This is turn of ${this.state.xisNext?'X':'O'}`;
@@ -51,7 +54,9 @@ export default class Game extends React.Component {
             <div className="game">
                 <div>
                     <Board onClick={(i)=>this.handleClick(i)} squares={current.squares}/>
+                    <Scoreboard/>
                 </div>
+
             </div>
 
         )
